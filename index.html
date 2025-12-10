@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Good Morning Anamika!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #a2d2ff, #ffb6c1);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Patrick Hand', cursive;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 85%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 4px solid white;
+            display: none; 
+            animation: bounceIn 1s;
+        }
+
+        .active-slide { display: block; }
+
+        /* Styles for the GIF area */
+        .image-box {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            border: 2px dashed #ffb6c1;
+            overflow: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; 
+        }
+
+        h2 { color: #ff8fab; font-family: 'Fredoka One', cursive; font-size: 1.8rem; margin: 10px 0; }
+        p { font-size: 1.3rem; color: #555; margin-bottom: 20px; }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .progress-bar { width: 100%; height: 6px; background: #fff; margin-top: 15px; border-radius: 10px; border: 1px solid #ffb6c1; overflow: hidden; }
+        .progress-fill { height: 100%; background: #ff8fab; width: 0%; transition: width 5s linear; }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container active-slide" id="slide1">
+        <div class="image-box">
+            <img src="wake.gif" alt="Waking Up">
+        </div>
+        <h2>Good Morning Anamika! ☀️</h2>
+        <p>Rise and shine! The winter sun is waiting for you.</p>
+        <div class="progress-bar"><div class="progress-fill" id="p1"></div></div>
+    </div>
+
+    <div class="slide-container" id="slide2">
+        <div class="image-box">
+            <img src="ready.gif" alt="Getting Ready">
+        </div>
+        <h2>Getting Ready ✨</h2>
+        <p>Picking a cute outfit and fixing your hair. You look amazing!</p>
+        <div class="progress-bar"><div class="progress-fill" id="p2"></div></div>
+    </div>
+
+    <div class="slide-container" id="slide3">
+        <div class="image-box">
+             <img src="scooty.gif" alt="Scooty">
+        </div>
+        <h2>Off to College! 🛵</h2>
+        <p>Helmet on! Feeling the cold breeze. Vroom vroom!</p>
+        <div class="progress-bar"><div class="progress-fill" id="p3"></div></div>
+    </div>
+
+    <div class="slide-container" id="slide4">
+        <div class="image-box">
+             <img src="bye.gif" alt="Bye">
+        </div>
+        <h2>Have the Best Day! 💖</h2>
+        <p>Go shine bright at college, Anamika! !</p>
+        <button onclick="location.reload()" style="margin-top:10px; padding:12px 25px; background: #ff8fab; border:none; color:white; border-radius:50px; font-weight:bold;">Play Again 🔄</button>
+    </div>
+
+    <script>
+        function playSlideshow() {
+            setTimeout(() => document.getElementById('p1').style.width = "100%", 100);
+
+            setTimeout(() => {
+                document.getElementById('slide1').classList.remove('active-slide');
+                document.getElementById('slide2').classList.add('active-slide');
+                document.getElementById('p2').style.width = "100%";
+            }, 5000);
+
+            setTimeout(() => {
+                document.getElementById('slide2').classList.remove('active-slide');
+                document.getElementById('slide3').classList.add('active-slide');
+                document.getElementById('p3').style.width = "100%";
+            }, 10000);
+
+            setTimeout(() => {
+                document.getElementById('slide3').classList.remove('active-slide');
+                document.getElementById('slide4').classList.add('active-slide');
+            }, 15000);
+        }
+        playSlideshow();
+    </script>
+
+</body>
+</html>
